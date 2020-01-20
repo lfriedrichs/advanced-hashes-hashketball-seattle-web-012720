@@ -241,7 +241,8 @@ def most_points_scored
 end
 
 def winning_team
-  most_points = 0
+  index = 0
+  points = []
   high_score_player = ""
   game_hash.each do |place, team| 
       team.each do |attribute, data|
