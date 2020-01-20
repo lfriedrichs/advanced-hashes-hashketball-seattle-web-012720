@@ -257,7 +257,7 @@ def winning_team
       end
     end
   end
-  return high_score_player
+  return high_score_team
 end
 
 
