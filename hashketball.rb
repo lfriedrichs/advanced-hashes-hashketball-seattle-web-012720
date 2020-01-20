@@ -241,23 +241,18 @@ def most_points_scored
 end
 
 def winning_team
-  index = 0
-  points = 0
   max_score = 0
   high_score_team = ""
   game_hash.each do |place, team| 
-      team.each do |attribute, data|
-        if attribute == :players 
-          data.each do |player|
-            if points[index]
-              points[index] += player[:points]
-            else
-              points[index] = 0 
-              points[index] += player[:points]
-            end
-          end
-          if points[index] >= max_score
-            
+    team.each do |attribute, data|
+      if attribute == :players 
+        points = 0
+        data.each do |player|
+          points += player[:points]
+        end
+        if points >= max_score
+          max_score = points
+          high_score_team = team[:team_name]
         end
       end
     end
