@@ -260,6 +260,20 @@ def winning_team
   return high_score_team
 end
 
-
+def player_with_longest_name
+ longest_name = ""
+  game_hash.each do |place, team| 
+    team.each do |attribute, data|
+      if attribute == :players 
+        data.each do |player|
+          if points >= max_score
+            max_score = points
+            high_score_team = team[:team_name]
+          end
+      end
+    end
+  end
+  return high_score_team
+end
 
 
