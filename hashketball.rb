@@ -240,6 +240,24 @@ def most_points_scored
   return high_score_player
 end
 
+def winning_team
+  most_points = 0
+  high_score_player = ""
+  game_hash.each do |place, team| 
+      team.each do |attribute, data|
+        if attribute == :players 
+          data.each do |player|
+          if player[:points] >= most_points
+            most_points = player[:points]
+            high_score_player = player[:player_name]
+          end
+        end
+      end
+    end
+  end
+  return high_score_player
+end
+
 
 
 
